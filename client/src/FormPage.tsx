@@ -28,7 +28,7 @@ export const FormPage: FC<{ onSubmit: (data: any) => void }> = ({ onSubmit }) =>
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch("/api/recommendations", {
+      const response = await fetch("https://dietrecommendationsystem.onrender.com/api/recommendations", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
