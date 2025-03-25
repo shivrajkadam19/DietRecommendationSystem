@@ -3,13 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { FormPage } from "./FormPage";
 import Recommendations from "./Recommendations";
 
-const Header = () => (
-  <header className="bg-gradient-to-r from-blue-500 to-blue-700 text-white p-6 text-center">
-    <h1 className="text-3xl font-semibold">Welcome to FitLife</h1>
-    <p>Your Personalized Diet & Workout Companion</p>
-  </header>
-);
-
 const Content = () => (
   <div className="bg-white p-6 rounded-lg shadow-md text-center">
     <h2 className="text-2xl font-semibold">Transform Your Health & Fitness</h2>

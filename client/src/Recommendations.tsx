@@ -32,13 +32,13 @@ const Recommendations = ({ recommendations }: { recommendations: any }) => {
     Object.keys(sections).forEach((section) => {
       if (state[section]?.length) {
         pdf.setFontSize(14);
-        pdf.text(sections[section], 10, y);
+        pdf.text(sections[section as keyof typeof sections], 10, y);
         y += 8;
 
         pdf.setFontSize(12);
-        state[section].forEach((item: string, index: number) => {
+        state[section].forEach((item: string) => {
           const splitText = pdf.splitTextToSize(`- ${item}`, 180);
-          splitText.forEach((line) => {
+          splitText.forEach((line: string) => {
             pdf.text(line, 12, y);
             y += 6;
             if (y > 280) {
@@ -67,7 +67,7 @@ const Recommendations = ({ recommendations }: { recommendations: any }) => {
           Object.keys(sections).map((section) =>
             state[section]?.length ? (
               <div key={section} className="bg-gray-100 p-4 rounded-lg mt-4 shadow-md">
-                <h3 className="text-lg font-semibold text-blue-600">{sections[section]}</h3>
+                <h3 className="text-lg font-semibold text-blue-600">{sections[section as keyof typeof sections]}</h3>
                 <ul className="mt-2 space-y-2">
                   {state[section].map((item: string, index: number) => (
                     <li key={index} className="p-2 bg-blue-50 rounded-md">{item}</li>
